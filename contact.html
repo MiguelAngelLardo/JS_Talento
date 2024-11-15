@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Talento Tech JS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><!--tipografia de fonts google idem a todos-->  
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--tipografia de fonts google idem a todos-->  
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><!--tipografia de fonts google-->  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!--iconos con CDN (no font awesome)-->
+
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+    <body>
+      <header class="header-contact">
+        <a href="index.html"> <img src="img/logo-talentoshop.png" alt="LogoHomo" title="Home"></a>
+        <nav>
+          <a href="productos.html" target="_self">Productos</a>
+          <a href="resenias.html">Reseñas</a>
+          <a href="contact.html">Contacto</a>
+        </nav>
+        <a href="#" class="carrito"> <i class="fas fa-shopping-cart"></i></a>
+
+      </header>
+        
+
+        <main class="main-contact">
+            <div class="content-contact">
+                <h2>Contacto</h2>
+                <form action="https://formspree.io/f/xjkvrdde" method="POST" class="formulario"> <!--PONER ACTION Y METOD y usar formsPREE-->
+                    <label  for="name"></label>
+                    <input  type="text" id="name" name="name" minlength="3" placeholder="Ingrese su nombre" required>
+    
+                    <label for="email"></label>
+                    <input type="email" id="email" name="email" placeholder="Ingrese su correo" required>
+                    
+                    <label for="message"></label>
+                    <textarea id="message" name="message" rows="7" placeholder="Escriba aqui..." required></textarea>
+                    
+                    <div class ="radio-group">
+                      <label for="radio1">Anomalía Técnica</label>
+                      <input type="radio" id="radio1" name="radio">
+
+                      <label for="radio2">Incorporación Vanguardista</label>
+                      <input type="radio" id="radio2" name="radio">
+                    </div>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </main>
+
+
+        <footer>
+          <div class="footerContainer">
+            <div class="socialIcons">
+              <a href=""><i class="fa-brands fa-facebook"></i></a> 
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+              <a href=""><i class="fa-brands fa-twitter"></i></a>
+              <a href=""><i class="fa-brands fa-google-plus"></i></a>
+              <a href=""><i class="fa-brands fa-youtube"></i></a>
+              <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+            </div> 
+
+            <div class="footerNav">
+              <ul>
+              <li><a href="index.html">LOKI BAZAR</a></li>
+               <li><a href="productos.html" target="_self">Productos</a></li>
+               <li><a href="resenias.html">Reseñas</a></li>
+               <li><a href="contact.html">Contacto</a></li>
+              </ul>
+            </div>
+            
+        
+          </div>
+          <div class="footerBottom">
+            <p>Copyright &copy; Designed by <span class="designer">Miguel Angel Lardo</p> 
+          </div>
+        </footer>
+
+    
+    </body>
+</html>
+
+    
+    </body>
+</html>

@@ -1,0 +1,532 @@
+* { /*universal para quitar margenes y hacer cuentas automaticas*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes colores /*para logo y carrito*/
+  {
+    0%, 100%{
+      filter: hue-rotate(0deg);
+    }
+    50%{
+      filter: hue-rotate(360deg);
+    }
+  } 
+
+@keyframes latido {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0px 8px 20px rgba(242, 31, 31, 0.2);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 20px rgba(255, 158, 1, 0.7);
+  }
+}
+@keyframes lluvia {
+  0% {
+    background-position-y: 0%;
+  }
+  100% {
+    background-position-y: -200%;
+  }
+}  
+
+body, html {
+  height: 100%;/*es para que el body ocupe el 100%*/
+}
+
+body {/*traigo fonts de google y diho que el body ocupre el 100 vh*/
+  font-family: 'Space Mono', sans-serif;
+  display: flex;
+  flex-direction: column; /*es por defecto es row as que pongo column*/
+  /*min-height: 100vh;*/
+}
+
+header {
+  display: flex;
+  width: 100%;
+  height: 6em;
+  flex-flow: row wrap; /*:flex-direction: row + flex-wrap = wrap; wrap me pone una abajo del otro si achico el navegador*/
+  justify-content: space-between; /*between-evenly-around-flex star   ordenar el contenido*/
+  align-items: center; /*alinea item en el eje secundario en este caso vertical*/
+  background: linear-gradient(40deg, #004aad 35%, rgba(2, 1, 1, 0.99) 100%);
+                                 /*va del cero al 35%*/ /*el negro va del cero al 100*/
+  border-bottom: 0.2em solid #ff9e01;
+}
+
+header img{
+  width: 15em;
+  padding-left: 20%;
+  transition: transform 0.3s ease;   
+}
+
+header img:hover {
+  transform: scale(1.1);
+  animation: colores 3s infinite; /* activa la animación en el hover */
+}
+
+nav a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block; /* Asegura que el enlace acepte transformaciones ya que no anda con display:inline*/
+  transition: transform 0.3s ease; /* Transición para suavizar el efecto */
+  border-radius: 60%;/*el % redondea desde el centro y px solo el borde*/
+
+}
+
+nav a:hover {
+  animation: latido 2s infinite ease-in-out; /* activa la animación en el hover */
+}
+
+.carrito {
+  font-size: 1.2em;/*agrandar icono*/
+  color: #ff9e01;
+  padding: 0.4em;
+  border: 0.1em solid #2b4971;   /*rgba(2, 1, 1, 0.99);*/
+  border-radius: 0.5em;
+  margin-right: 10%;
+  transition: transform 0.5s; /* Transición para agrandar y volver al tamaño inicial */
+}
+
+.carrito:hover {
+  transform: scale(1.3);
+  animation: colores 2s infinite; /* activa la animación en el hover */
+}
+
+main {
+  flex: 1;
+  position: relative;
+  display: flex;
+  justify-content:center;   
+  align-items: center;
+  overflow: hidden;
+}
+
+/*index.HTML*/
+.imagen-de-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/Loky-hd.webp");
+  background-size: cover;
+  background-position: center;
+  filter: blur(0.6px);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/*
+.imagen-adelante{
+  background-image: url("../img/rain2.png");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+ 
+  animation-name: lluvia;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}*/
+
+/*index.HTML */
+
+.content{
+  max-width: 30em;/*es igual a 600px*/
+  text-align: center;
+  background: linear-gradient(135deg, rgba(0, 74, 173, 0.8), rgba(2, 1, 1, 0.9));
+  border: 1px solid #ff9e01; /* Borde en el color naranja del logo */
+  border-radius: 10px;
+  box-shadow: 0px 8px 50px rgb(255, 237, 242); /* Sombra más grande y más oscura */
+  z-index: 2;/*el 1 es la foto de fondo*/
+  color: white;
+  box-sizing: border-box;
+  padding: 1.875em;/*equivale a 30 px =>  (30px / 16px = 1.875).*/
+  font-size: 1.2em; /* Tamaño de letra moderado */
+
+  transition: transform 0.3s ease; /* Suaviza el cambio */
+  cursor: pointer; /* Hace que el contenedor sea clicable */
+}
+
+.content:hover {
+  animation: latido 2s infinite;
+}
+
+.content a{ 
+  text-decoration: none;
+  color: inherit; /* Usa el color del texto principal (.content) */
+}
+
+/*contac.html*/
+.header-contact{
+  background: linear-gradient(40deg, #073788 10%, rgba(2, 1, 1, 0.99) 100%);
+}
+
+.main-contact{
+  background-color: rgba(0, 0, 0);
+}
+
+.content-contact{
+  width:50%;
+  color: #ddd;
+  border-top: 1px solid #ddd; /* Borde en el color naranja del logo */
+  text-align: center;/*para el h2 "contacto"*/
+  padding: 0.5em;
+}
+
+.formulario {
+  display: flex;/*para el form*/
+  flex-direction: column;
+  gap: 10px;
+}
+
+.formulario label {/*no tengo label, solo placeholder*/
+    text-align: left;
+    color: white;
+}
+
+.formulario input,
+.formulario textarea{
+  padding: 0.8em;
+  margin: 0.5em;
+  border: none;
+  border-bottom: 1px solid greenyellow;
+  border-radius: 1em;
+  font-size: 1.5em;
+  background: transparent;
+  color: greenyellow;/*para la letra*/
+}
+
+
+.formulario textarea{
+  resize: none; /* Desactiva el redimensionamiento */
+  border-top: 1px solid greenyellow;
+}
+
+.formulario input:focus, /*el focus es para cuando le hago click al input*/
+.formulario textarea:focus {
+  outline: none; /* Elimina el borde por defecto */
+  border-bottom: 2px solid greenyellow; /* Ajusta el borde inferior */
+  border-top: 2px solid greenyellow; /* Ajusta el borde inferior */
+  box-shadow: 0 0 8px greenyellow; /* Añade un efecto visual extra opcional */
+}
+
+
+
+.radio-group label {
+  color: greenyellow;
+  padding: 0.5em;
+  border-radius: 15px;
+}
+
+.radio-group label:hover,
+.radio-group input:hover{
+  box-shadow: 0 0 20px greenyellow; /* Añade un efecto visual extra opcional */
+  cursor: pointer;
+  color: hotpink;
+}
+
+.formulario button {
+  width: 50%;
+  margin: 4em auto 0; /*como achico al 50% se va a la izquierda, pongo 4 sup, auto de lateral (lo centra) y cero abajo*/
+  padding: 0.8em;
+  background: transparent;
+  color: white;
+  border: none;
+  border-top: 2px solid greenyellow; /* Ajusta el borde inferior */
+
+  border-radius: 2em;
+  cursor: pointer;
+  font-size: 1.2em;
+}
+
+.formulario button:hover {
+  box-shadow: 0 0 18px greenyellow; /* Añade un efecto visual extra opcional */
+  color: hotpink;
+}
+
+/* Estilos para resenias/comentarios */
+
+.main-resenias{
+  background-image: url('../img/fondo-resenia.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.section-resenias{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));/*auto fill llena las colmnas automatico*/
+  gap: 1em;
+  width:90%;
+  align-items: start; /* Alinea todos los recuadros al principio de la fila */
+
+}
+
+.resenias {
+    background-color: #004aadd5;    
+    padding: 1em;
+    border: 1px solid #ddd5;
+    box-shadow: 0 0 8px rgb(73, 120, 4); /* Añade un efecto visual extra opcional */
+    border-radius: 1em;
+    word-wrap: break-word ; /* Asegura que el texto largo se ajuste al ancho del contenedor */
+  }
+
+.resenias:hover {
+  animation: latido 3s infinite;
+  cursor: pointer;
+} 
+
+.resenias h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #d3cb3b;
+    font-size: 18px;
+}
+
+.resenias p {
+    text-align: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #000;
+    text-shadow: 0px 0px 1px #000;
+}
+
+.resenias h3:hover{
+  text-shadow: 0px 0px 5px #d3cb3b;
+}
+/*aplica el efecto del p cuando se posiciona en p
+.resenias p:hover{
+  color: hotpink;
+  text-shadow: 0px 0px 1px hotpink;
+}*/
+
+.resenias:hover p {/*cuando se posiciona en resenias activa el efecto del p*/
+  color: hotpink;
+  text-shadow: 0px 0px 1px hotpink;  /* Aplica el text-shadow al <p> cuando .card tiene hover */
+}
+
+/* Estilos para productos*/
+
+.main-productos {
+  position: relative; /* Necesario para posicionar el ::before */
+  z-index: 1; /* Base del fondo */
+  overflow: hidden; /* Asegura que ::before no sobresalga */
+}
+
+.main-productos::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/loki-productos.png');
+  background-size: cover;
+  background-position: center;
+  filter:brightness(0.2); /* Escala de grises solo al fondo */
+  z-index: -1; /* Coloca esta capa detrás de todo el contenido */
+  pointer-events: none; /* Permite interacción con los elementos de `.main-productos` */
+}
+
+.main-productos:hover::before {
+  filter: brightness(1); /* El fondo vuelve a su brillo normal el poner click*/
+}
+
+.product-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 90%;
+  gap:1em;
+  padding: 1.2em;
+  /*border: 1px solid #ddd;*/
+  position: relative;
+  z-index: 2; /* Por encima del fondo */
+  background-color: transparent; /* Opcional: mantén transparente si no deseas color */
+}
+
+.card {
+    background-color: #fffc;
+    border: 1px solid #ddd;
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 20px #d0cfb5;    /*este efecto hace una sobra paralela en la parte de abajo*/
+
+    /* Ancho fijo de la tarjeta */
+    width: 16em;     
+    text-align: center;
+    overflow: hidden;/* si el texto es mas largo que la cards , no permiso que sobresalga */
+    transition: transform 0.3s;
+}
+
+.card:hover {
+  background: linear-gradient(40deg, rgba(51, 51, 51, 0.56) 10%, rgba(255,255,255,0.75) 30%, rgba(255,255,255,0.75) 70%, rgba(0,128,0,0.57) 100%);
+  transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 40%; 
+}
+
+.card h3 {
+    margin: 1em 0;
+    color: #4CAF50;
+}
+
+.card p {
+    font-size: 1.0em;
+    color: #000f;
+    padding: 0 10px 10px;
+}
+
+.card:hover p {
+  text-shadow: #000 0px 0px 1px;  /* Aplica el text-shadow al <p> cuando .card tiene hover */
+}
+
+.card:hover h3{
+  font-size: 1.2em;
+}
+
+.card button {
+    background-color: #073788;
+    color: #ddd;
+    margin-top: 1em;
+    padding: 1em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.card button:hover {
+    background-color: #e00a43ff;
+    box-shadow: 0px 0px 10px #e00a43ff;
+}
+
+
+
+/*Agrego una media Query*/
+@media (max-width: 600px) {
+    .product-cards {
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%; 
+    }
+
+    .card h3, .card p {
+        font-size: 14px; 
+    }
+    .content {
+        padding: 10px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+
+    .contact-form button {
+        font-size: 14px;
+    }
+
+    .review {
+        padding: 15px;
+    }
+
+    nav a {
+        padding: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+/*footer*/
+.footerContainer{
+  background-color: #111;
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+}  
+
+.socialIcons a {
+  margin: 0.5em 1em;
+  padding: 0.5em;
+  border-radius:50%;
+  text-decoration: none;
+  background-color: white;
+}  
+
+.socialIcons a i {
+  font-size: 1.5em;
+  color: black;
+  opacity: 0.9;
+}  
+
+.socialIcons a:hover{
+  background-color: #111;
+  transition: 0.5s;
+} 
+
+.socialIcons a:hover i{
+  color: white;
+  transition: 0.5s;
+} 
+
+.footerNav{
+  padding: 0.5emp;
+}
+
+.footerNav ul{
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+} 
+
+.footerNav ul li a{
+  color: white;
+  margin: 0 1em;
+  text-decoration: none;
+  font-size: 1.3em;
+  opacity: 0.7;
+}  
+
+.footerNav ul li a:hover{
+  opacity: 1;
+  transition: 0.5s;
+}
+
+.footerBottom{
+  background-color: #000;
+  text-align: center;
+  padding: 0.5em;
+}
+
+.footerBottom p{
+  color: white;
+}
+
+.designer{
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0 5px;
+}
+
+
+
+
