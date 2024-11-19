@@ -172,7 +172,7 @@ main {
 }
 
 .content-contact{
-  width:50%;
+  width:40%;/*para q se agrande a un ancho especifico y no pase de ahi*/
   color: #ddd;
   border-top: 1px solid #ddd; /* Borde en el color naranja del logo */
   text-align: center;/*para el h2 "contacto"*/
@@ -197,9 +197,10 @@ main {
   border: none;
   border-bottom: 1px solid greenyellow;
   border-radius: 1em;
-  font-size: 1.5em;
+  font-size: 1.0em;
   background: transparent;
   color: greenyellow;/*para la letra*/
+  font-family: 'Space Mono', sans-serif; /*la tipografia es para el place holder*/
 }
 
 
@@ -216,8 +217,6 @@ main {
   box-shadow: 0 0 8px greenyellow; /* Añade un efecto visual extra opcional */
 }
 
-
-
 .radio-group label {
   color: greenyellow;
   padding: 0.5em;
@@ -229,6 +228,8 @@ main {
   box-shadow: 0 0 20px greenyellow; /* Añade un efecto visual extra opcional */
   cursor: pointer;
   color: hotpink;
+  transition: all 0.5s ease;
+
 }
 
 .formulario button {
@@ -239,7 +240,6 @@ main {
   color: white;
   border: none;
   border-top: 2px solid greenyellow; /* Ajusta el borde inferior */
-
   border-radius: 2em;
   cursor: pointer;
   font-size: 1.2em;
@@ -249,6 +249,82 @@ main {
   box-shadow: 0 0 18px greenyellow; /* Añade un efecto visual extra opcional */
   color: hotpink;
 }
+
+.checkbox-group {
+  margin-top: 3.5em;
+}
+
+label[for="checkbox"]{
+  text-shadow: 0px 0px 0px #adff2f99;
+  font-size: 1.1em;
+  color: #dadadbdd;
+  text-shadow: 1px 8px 9px #09f;
+}
+
+label[for="checkbox"]:hover {
+  color: #adff2fcc;  
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-group span {
+  display: inline-block;
+  position: relative;
+  width: 1em; /* Tamaño del círculo */
+  height: 1em;
+  background: rgb(217, 227, 215); /* Color de fondo del círculo */
+  border-radius: 50%; /* Hace el círculo perfectamente redondo */
+  transition: all 0.3s ease; /* Transición más rápida */
+}
+
+.checkbox-group label input {
+  display: none; /* Oculta el checkbox original */
+}
+
+.checkbox-group label input:checked + span {
+  box-shadow: 0 0 7px 10px #09f; /* Resplandor azul al hacer clic */
+}
+
+.checkbox-group span:after {
+  content: "";
+  position: absolute;
+  width: 0.2em;
+  height: 0.4em;
+  border: solid rgb(4, 4, 4); /* Color del check */
+  border-width: 0 0.2em 0.2em 0; /* Tamaño del check */
+  transform: rotate(45deg); /* Rotación para crear el símbolo de check */
+  top: 0.15em; /* Ajusta la posición vertical */
+  left: 0.3em; /* Ajusta la posición horizontal */
+  opacity: 0; /* Oculta el check inicialmente */
+  transition: all 0.3s ease;
+}
+
+.checkbox-group label input:checked + span:after {
+  opacity: 1; /* Muestra el check cuando está seleccionado */
+}
+
+.checkbox-group a{
+  color: #69f;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 0.3em;
+  transition: all 1s ease;
+}
+
+.checkbox-group a:hover{
+  box-shadow: 0 0 20px greenyellow; /* Añade un efecto visual extra opcional */
+  cursor: pointer;
+  color: hotpink;
+}
+
+
+
+
+  
+/*6 53*/
 
 /* Estilos para resenias/comentarios */
 
