@@ -386,11 +386,40 @@ main {
   font-family: inherit; /*para que herede lo del padre del body*/
 }
 
+input[type='email']:valid{
+  color: greenyellow;
+  text-shadow: 0 0 20px greenyellow;
+}  
+
+input[type='email']:invalid{ 
+  color: rgb(232, 210, 210);
+  text-shadow: 0 0 20px rgb(226, 207, 207);
+
+}
+
+/* si hay email valido el h2 hijo de content-contact se pintara de verde*/
+.content-contact:has(input[type="email"]:valid) > h2 {
+  color: greenyellow;
+  text-shadow: 0 0 20px greenyellow;
+}
+
+.content-contact:has(input[type="email"]:valid) > h2::after {
+  content: " 😊";
+  font-size: 1em;
+}
+
+.content-contact:has(input[type='email']:invalid) > h2{
+  color: rgb(232, 210, 210);
+  text-shadow: 0 0 20px rgb(226, 207, 207);
+}
+
+
 
 .formulario textarea{
   resize: none; /* Desactiva el redimensionamiento */
   border-top: 1px solid greenyellow;
 }
+
 
 .formulario input:focus, /*el focus es para cuando le hago click al input*/
 .formulario textarea:focus {
