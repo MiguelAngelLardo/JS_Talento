@@ -184,7 +184,10 @@ main {
   color: inherit; /* Usa el color del texto principal (.content) */
 }
 
-/* Estilos para productos*/
+
+
+/*|||| ESTILOS PRODUCTOS ||||*/
+
 .header-productos{
   background: linear-gradient(40deg, #073788 40%, rgba(2, 1, 1, 0.99) 100%);
 }
@@ -198,10 +201,8 @@ main {
 .main-productos::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 90vh;
   background-image: url('../img/loki-productos.png');
   background-size: cover;
   background-position: center;
@@ -214,64 +215,53 @@ main {
   filter: brightness(1); /* El fondo vuelve a su brillo normal el poner click*/
 }
 
-
-.product-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 90%;
-  gap:1em;
-  padding: 1.2em;
-  /*border: 1px solid #ddd;*/
-  position: relative;
-  z-index: 2; /* Por encima del fondo */
-  background-color: transparent; /* Opcional: mantén transparente si no deseas color */
+.grilla{ /*BEM bloque elemento modificador*/
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20em,1fr));/*auto fill llena las colmnas automatico*/
+  gap: 1em;
+  width:80%;
+  align-items: start; /* Alinea todos los recuadros al principio de la fila */
 }
 
-.card {
-    background-color: #fffc;
-    border: 1px solid #ddd;
-    border-radius: 0.5em;
-    box-shadow: 0px 0px 20px #d0cfb5;    /*este efecto hace una sobra paralela en la parte de abajo*/
-
-    /* Ancho fijo de la tarjeta */
-    width: 16em;     
-    text-align: center;
-    overflow: hidden;/* si el texto es mas largo que la cards , no permiso que sobresalga */
-    transition: transform 0.3sm;
+.grilla__card {
+  background-color: #004aadd5;    
+  padding: 1em;
+  border: 1px solid #ddd5;
+  box-shadow: 0 0 8px rgb(73, 120, 4); /* Añade un efecto visual extra opcional */
+  border-radius: 1em;
+  word-wrap: break-word ; /* Asegura que el texto largo se ajuste al ancho del contenedor */
+  text-align: center;
 }
 
-.card:hover {
-  background: linear-gradient(40deg, rgba(51, 51, 51, 0.56) 10%, rgba(255,255,255,0.75) 30%, rgba(255,255,255,0.75) 70%, rgba(0,128,0,0.57) 100%);
-  transform: translateY(-5px);
+.grilla__card__thumbnail{ /*imagen de la card*/
+  width: 60%;
+  height: 50%; 
+  border: 2px solid black;
 }
-
-.card img {
-    width: 100%;
-    height: 40%; 
-}
-
-.card h3 {
-    margin: 1em 0;
-    color: #4CAF50;
-}
-
-.card p {
-    font-size: 1.0em;
-    color: #000f;
-    padding: 0 10px 10px;
-}
-
-.card:hover p {
-  text-shadow: #000 0px 0px 1px;  /* Aplica el text-shadow al <p> cuando .card tiene hover */
-}
-
-.card:hover h3{
+ 
+.grilla__card__title{/*titulo de la card*/
+  border: 2px solid black;
+  margin-bottom: 10px;
+  color: #d3cb3b;
   font-size: 1.2em;
 }
 
-.card button {
-  background-color: #073788;
+.grilla__card__description{ /*es un p*/
+  border: 2px solid rgb(228, 200, 200);
+  font-size: 1.1em;
+  color: #411717;
+  text-shadow: 0px 0px 1px #000;
+}
+
+.grilla__card__price{ /*es un p*/
+  border: 2px solid black;
+  font-size: 1.3em;
+  color: #48ff5d;
+  text-shadow: 0px 0px 1px #ea0f0f;
+}
+
+.grilla__card__button{
+  background-color: #4d6faa;
   color: #ddd;
   margin-top: 1em;
   padding: 0.9em;
@@ -281,9 +271,31 @@ main {
   font-size: 1.1em;
 }
 
-.card button:hover {
+.grilla__card:hover {
+  animation: latido 3s infinite;
+  cursor: pointer;
+  background: linear-gradient(40deg, rgba(51, 51, 51, 0.56) 10%, rgba(255,255,255,0.75) 30%, rgba(255,255,255,0.75) 70%, rgba(0,128,0,0.57) 100%);
+  transform: translateY(-5px);
+}
+
+.grilla__card:hover .grilla__card__title {/*esto selecciona el hijo, para hermanos es ~ o +*/
+  color: red;
+  text-shadow: 0px 0px 10px #000;}
+
+.grilla__card:hover .grilla__card__price{
+  color: red;
+  text-shadow: 0px 0px 10px #000;
+  font-size: 1.5em;
+}
+
+.grilla__card__button:hover{ 
   background-color: #ff1c1c;
 }
+
+
+
+
+
 
 
 /* Estilos para resenias/comentarios */
@@ -412,7 +424,6 @@ input[type='email']:invalid{
   color: rgb(232, 210, 210);
   text-shadow: 0 0 20px rgb(226, 207, 207);
 }
-
 
 
 .formulario textarea{
