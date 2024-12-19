@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"> <!--esta en español-->
+<head>
+  <meta charset="UTF-8"> <!--para acentos y caracteres-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--el width ser igual al ancho del diospitivo-->
+  
+  <title>TP Talento Tech JS</title><!--para solapita-->  
+  <link rel="icon" href="img/favicon-loki.ico" type="image/ico"><!--para solapita-->  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"><!--tipografia de fonts google idem a todos => se conecta con la api-->  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!--tipografia de fonts google idem a todos => gstatic es un servidor que usa google-->  
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"><!--tipografia de fonts google-->  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!--iconos con CDN (no font awesome)-->
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"><!-- SweetAlert CSS -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"><!--bootstrap-->
+  <link rel="stylesheet" href="css/style.css"><!--estilo propio-->
+</head>
+
+<body>
+<header>
+  <a href="index.html"> <img src="img/logo-talentoshop.png" alt="LogoHomo" title="Home"></a>
+  <nav>
+    <a href="productos.html" target="_self">Productos</a>
+    <a href="resenias.html">Reseñas</a>
+    <a href="contact.html">Contacto</a>
+  </nav>
+  <a href="carrito.html" class="carrito"> <i class="fas fa-shopping-cart"></i></a>
+</header>
+    
+<main class ="main-carrito">
+    <!-- Carrito de compras -->
+    <div class="container" >  
+      <!--.container => Cel con 576px o menos se ajustara al 100% 
+            si la pantalla entre 576 a 765 yo vere 540px
+            entre 768 a 991 yo vere 720px
+            entre 992 y 1199 yo vere 960 px 
+            entre 1200 y 1399 yo vere 1140 px 
+            mas de 1400px yo vere 1320px
+            https://getbootstrap.com/docs/5.0/layout/containers/-->
+      <!-- "margen superior (margin-top) con un tamaño de 5". -->
+      <h2 class="mb-4" >Carrito de Compras</h2> <!--mb es margin bottom-->
+
+      <table class="table table-bordered" ><!--table hace las lineas horizontal y el bordered las lineas verticales-->
+        <thead class="table-dark"> <!--thead es el encabezado de la tabla y table-dark es el fondo oscuro-->
+          <tr>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="carrito-items"> <!--este id es puesto por mi, no es boostrap-->
+          <!-- Aquí se cargarán los productos del carrito -->          
+        </tbody>
+      </table>
+
+        <div class="text-end mb-3" > <!--text-end pone texto a la derecha y margin botom lo aleja de los botones y el border es el borde-->
+            <h4>Total: $<span id="total">0</span></h4>
+        </div>
+
+        <div class="d-flex justify-content-between"> <!--como usar display 'd-flex' https://youtu.be/ySL1AfSwNWg?si=ez26RpChmlxN-5ed&t=136 para poner todo en eje izquierda derecha main axis-->
+            <button id="limpiar-carrito" class="btn btn-danger">Volver al Inicio</button>
+            <button id="finalizar-compra" class="btn btn-success">Finalizar Compra</button>
+        </div>
+    </div> <!--container-->
+      
+</main> 
+
+        
+
+
+        <footer>
+          <div class="footerContainer">
+            <div class="socialIcons">
+              <a href=""><i class="fa-brands fa-facebook"></i></a> 
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+              <a href=""><i class="fa-brands fa-twitter"></i></a>
+              <a href=""><i class="fa-brands fa-google-plus"></i></a>
+              <a href=""><i class="fa-brands fa-youtube"></i></a>
+              <a href=""><i class="fa-brands fa-whatsapp"></i></a>
+            </div> 
+
+            <div class="footerNav">
+              <ul>
+              <li><a href="index.html">LOKI BAZAR</a></li>
+               <li><a href="productos.html" target="_self">Productos</a></li>
+               <li><a href="resenias.html">Reseñas</a></li>
+               <li><a href="contact.html">Contacto</a></li>
+              </ul>
+            </div>
+            
+          </div>
+          <div class="footerBottom">
+            <p>Copyright &copy; Designed by <span class="designer">Miguel Angel Lardo</p> 
+          </div>
+        </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>  
+  <script src="js/carrito.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>
