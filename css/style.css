@@ -332,35 +332,105 @@ main {
 
 
 
-
-
-
-
-
-
-
-
 /* Estilos para resenias/comentarios */
-.header-resenias{
+.h-resenias{
   background: linear-gradient(40deg, #073788 20%, rgba(2, 1, 1, 0.99) 100%);
 }
 
-.main-resenias{
+.m-resenias{/*bloque main-resenias*/
+  display: flex;
+  flex-direction: column;
   background-image: url('../img/fondo-resenia.webp');
   background-size: cover;
   background-position: center;
 }
 
-.section-resenias{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));/*auto fill llena las colmnas automatico*/
-  gap: 1em;
-  width:90%;
-  align-items: start; /* Alinea todos los recuadros al principio de la fila */
-
+.m-resenias__s-pedirCantidad{/*ELEMENTO 1 SECTION*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
 }
 
-.resenias {
+.m-resenias__s-pedirCantidad label{ /*elemento 1.a*/
+  font-size: 3em;
+  color: #d3cb3b;
+  text-shadow: 0 0 8px #ccc;
+}
+
+.m-resenias__s-pedirCantidad input {/*elemento 1.b*/
+  margin-bottom: 1em;
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: 1em;
+  background-color: #004aadd5;
+  text-align: center;
+  color: #48ff5d; /* Cambia este color a lo que prefieras */
+ }
+ 
+ /*quita flechita de number*/
+ .m-resenias__s-pedirCantidad input::-webkit-outer-spin-button,
+ .m-resenias__s-pedirCantidad input::-webkit-inner-spin-button {
+  -webkit-appearance: none; 
+}
+
+.m-resenias__s-pedirCantidad button{
+  border: none; /*le quito border defecto*/
+  border-radius: 2em; /*redondeo puntas*/
+  border-top: 2px solid greenyellow; /* pinto borde superior*/
+  padding: 1em;
+  background: #222; /*le quito fondo */
+  
+  font-size: 1em;
+  color: white; /*color letra*/
+  
+  cursor: pointer;
+}
+
+.m-resenias__s-pedirCantidad button:hover{
+  color: hotpink;
+  text-shadow: 0px 0px 10px hotpink; /*color letra*/
+  border-top: 2px solid hotpink; /* pinto borde superior*/
+  box-shadow: 0 0 18px greenyellow; /* Añade un efecto visual extra opcional */
+
+  transition: all 0.5s ease;/*suaviza el efecto*/
+}
+
+.m-resenias__s-grid{/**ELEMENTO 2 SECTION*/
+  display: grid;
+  grid-template-columns: repeat(6,1fr); /* Auto-fill llena las columnas automáticamente */
+  gap: 1em; /* Controla el espacio entre columnas y filas */
+  
+  margin-bottom: 1.5em;
+  width: 70%;
+  align-items: start; /* Alinea todos los recuadros al principio de la fila */
+  overflow: auto; /* Habilita la barra de desplazamiento */
+}
+
+.m-resenias__s-grid::-webkit-scrollbar { /* Configuración general del scrollbar */
+  width: 0.5em; /* Ancho vertical */
+  height: 0.5em; /* Altura horizontal */
+}
+
+.m-resenias__s-grid::-webkit-scrollbar-track { /* Track: fondo */
+  background-color: #41171711; /* Negro con 30% de opacidad */
+  box-shadow: 0 0 7px greenyellow; /* Añade un efecto visual extra opcional */
+  border-radius: 30px;
+}
+
+.m-resenias__s-grid::-webkit-scrollbar-thumb { /* Thumb: deslizador */
+  background-color: #004aadd5;
+  border-radius: 30px;
+  cursor: pointer; /* Manito en el thumb */
+}
+
+.m-resenias__s-grid::-webkit-scrollbar-thumb:hover { /* Hover del thumb */
+  background-color: #ff1c1c;
+  box-shadow: 0 0 15px red;
+}
+
+
+.m-resenias__s-grid__d-resenia{ /*elemento 2.b*/
     background-color: #004aadd5;    
     padding: 1em;
     border: 1px solid #ddd5;
@@ -369,19 +439,19 @@ main {
     word-wrap: break-word ; /* Asegura que el texto largo se ajuste al ancho del contenedor */
   }
 
-.resenias:hover {
+.m-resenias__s-grid__d-resenia:hover {
   animation: latido 3s infinite;
   cursor: pointer;
 } 
 
-.resenias h3 {
+.m-resenias__s-grid__d-resenia h3 {
     text-align: center;
     margin-bottom: 10px;
     color: #d3cb3b;
     font-size: 18px;
 }
 
-.resenias p {
+.m-resenias__s-grid__d-resenia p {
     text-align: center;
     justify-content: center;
     font-size: 16px;
@@ -389,14 +459,17 @@ main {
     text-shadow: 0px 0px 1px #000;
 }
 
-.resenias h3:hover{
+.m-resenias__s-grid__d-resenia:hover h3{
   text-shadow: 0px 0px 5px #d3cb3b;
 }
-/*aplica el efecto del p cuando se posiciona en p
-.resenias p:hover{
+
+.m-resenias__s-grid__d-resenia:hover p{
   color: hotpink;
   text-shadow: 0px 0px 1px hotpink;
-}*/
+}
+
+
+
 
 
 /*contac.html*/
@@ -467,12 +540,10 @@ input[type='email']:invalid{
   text-shadow: 0 0 20px rgb(226, 207, 207);
 }
 
-
 .formulario textarea{
   resize: none; /* Desactiva el redimensionamiento */
   border-top: 1px solid greenyellow;
 }
-
 
 .formulario input:focus, /*el focus es para cuando le hago click al input*/
 .formulario textarea:focus {
@@ -526,7 +597,7 @@ label[for="checkbox"]{
   text-shadow: 1px 8px 9px #09f;
 }
 
-label[for="checkbox"]:hover {
+label[for="checkbox"]:hover{
   color: #adff2fcc;  
   cursor: pointer;
 }
@@ -608,32 +679,52 @@ input[type="checkbox"] {
   background-attachment: fixed; 
 }
 
-.container{
+.main-carrito .container{ /*este es el fondo que esta entre la foto y la tabla*/
   border-radius: 20px;
-  background-color: #1B3F9F55;
+  background: linear-gradient(#1B3F9F55, #111d);/*le doy gradiente para que el "total" se vea mejor con negrito de fondo*/
+  padding: 1em 1em;
 }
 
-.container h2{
-  border: 1px solid #e4e4e455;/*quitar*/
+.main-carrito .container h2{
   color: #adff2fcc;
   text-align: center;
 }
 
-.table{/*BEM => table es el bloque*/
+.main-carrito .table{/*BEM => table es el bloque*/
   border: 1px solid #e4e4e455; /*lineas suaves en toda la tabla*/
   color: #adff2fcc; /*color de texto*/
   text-shadow: 0 0 10px greenyellow; /*color texto*/
 }
 
-.table-dark{/* table__head header table*/
+.main-carrito .table-dark{/* table__head header table*/
   text-align: center; /*texto direccion*/
   color: hotpink; /*texto color*/
   text-shadow: 0px 0px 1px hotpink; /*texto color*/
 }
 
+.main-carrito .text-end{ /*text-end pone "total" texto a la derecha*/
+  color: #69f; /*texto color*/
+  text-shadow: 0px 0px 10px #69f; /*texto color*/
+}
 
+.main-carrito .btn{
+  border: none; /*le quito border defecto*/
+  background: transparent; /*le quito fondo */
+  border-radius: 2em; /*redondeo puntas*/
+  border-top: 2px solid greenyellow; /* pinto borde superior*/
+  color: white; /*color letra*/
+  cursor: pointer;
+  font-size: 1em;
+}
 
+.main-carrito .btn:hover{
+  color: hotpink;
+  text-shadow: 0px 0px 10px hotpink; /*color letra*/
+  border-top: 2px solid hotpink; /* pinto borde superior*/
+  box-shadow: 0 0 18px greenyellow; /* Añade un efecto visual extra opcional */
 
+  transition: all 0.5s ease;/*suaviza el efecto*/
+}
 
 
 /*footer*/

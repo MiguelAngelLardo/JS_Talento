@@ -16,8 +16,8 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-  <header class="header-resenias">
+<body> <!--h=header m=main s=section d=div f=footer-->
+  <header class="h-resenias">
     <a href="index.html"> <img src="img/logo-talentoshop.png" alt="LogoHomo" title="Home"></a>
     <nav>
       <a href="productos.html" target="_self">Productos</a>
@@ -27,66 +27,20 @@
     <a href="carrito.html" class="carrito"> <i class="fas fa-shopping-cart"></i></a>
   </header>
     
+  
+  <main class="m-resenias"><!--BEM B = m-resenias flex-->
+    <section class="m-resenias__s-pedirCantidad"><!--BEM E = m-resenias__s-pedirCantidad flex-->
+      <label for="review-count">¿Cuántas reseñas deseas ver?</label>
+      <input  type="number" id="m-resenias__s-pedirCantidad__cantidad" min="1" max="50" placeholder="15">
+      <button  id="m-resenias__s-pedirCantidad__clickBoton">Cargar Reseñas</button>
+    </section>
 
-  <main class= "main-resenias">
-    <section class="section-resenias">
-      <div class="resenias">
-        <h3>Ella Mansilla</h3>
-        <p>Excelente servicio, muy recomendado.</p>
-      </div>
-      
-      <div class="resenias">
+    <section class="m-resenias__s-grid" id="m-resenias__s-grid"> <!--BEM E = m-resenias__s-grid grid-->
+      <!--
+      <div class="m-resenias__s-grid__d-resenia">
         <h3>Julieta Rey</h3>
         <p>La atención fue increíble y superaron mis expectativas.</p>
-      </div>
-                  
-      <div class="resenias">
-        <h3>Carlos Rey</h3>
-        <p>Todo llegó en perfectas condiciones. Volveré a comprar. hola como estas</p>
-      </div>
-
-      <div class="resenias">
-        <h3>Luz Fernández</h3>
-        <p>Precios accesibles y productos de calidad.</p>
-      </div>
-
-      <div class="resenias">
-        <h3>Valentina Fernández</h3>
-        <p>Me encantó la experiencia, el envío fue rápido. Es asi esto, hay que estudiar.</p>
-      </div>
-
-      <div class="resenias">
-        <h3>Graciela Mendieta</h3>
-        <p>Una atención personalizada y amable. Muy satisfecho.</p>
-      </div>
-      <div class="resenias">
-        <h3>Graciela Mendieta</h3>
-        <p>Una atención personalizada y amable. Muy satisfecho. hola como estas</p>
-      </div>
-      <div class="resenias">
-        <h3>Graciela Mendieta</h3>
-        <p>Una atención personalizada y amable. Muy satisfecho.</p>
-      </div>
-      <div class="resenias">
-        <h3>Graciela Mendieta</h3>
-        <p>Una atención personalizada y amable. Muy satisfecho.</p>
-      </div>
-      <div class="resenias">
-        <h3>Graciela Mendieta</h3>
-        <p>Una atención personalizada y amable. Muy satisfecho.</p>
-      </div>
-      <div class="resenias">
-        <h3>Graciela Mendieta</h3>
-        <p>Una atención personalizada y amable. Muy satisfecho.</p>
-      </div>
-      <div class="resenias">
-        <h3>Graciela Mendieta</h3>
-        <p>Una atención personalizada y amable. Muy satisfecho.</p>
-      </div>
-      <div class="resenias">
-        <h3>Graciela Mendieta</h3>
-        <p>Una atención personalizada y amable. Muy satisfecho. hola todo bien papa. Bien y vos que onda</p>
-      </div>
+      </div>-->
     </section>
   </main>
 
@@ -116,6 +70,7 @@
       <p>Copyright &copy; Designed by <span class="designer">Miguel Angel Lardo</p> 
     </div>
   </footer>
+  <script src ="js/reseniasApi.js"></script>
 
 </body>
 </html>
